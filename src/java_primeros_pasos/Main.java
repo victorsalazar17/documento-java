@@ -4,32 +4,37 @@ package java_primeros_pasos;
 
 public class Main {
 
-    public int numero1;
-    public int numero2;
+    public static void numeroMasFrecuente(int[] numeros) {
+        int numeroFrecuente = numeros[0];
+        int repeticiones = 0;
+        for (int i = 1; i < numeros.length; i++) {
+            int contador = 0;
 
-    public static int sumar(int numero1, int numero2) {
-        return numero1 + numero2;
-    }
-    public static int restar(int numero1, int numero2) {
-        return numero1 - numero2;
-    }
-    public static int multiplicar(int numero1, int numero2) {
-        return numero1 * numero2;
-    }
-    public static double dividir(double numero1, double numero2) {
-        if  (numero1 == 0 || numero2 == 0) {
-            return 0;
+            for (int j = 0; j < numeros.length; j++) {
+                if (numeros[j] == numeros[i]) {
+                    contador++;
+                }
+            }
+            if (contador > repeticiones) {
+                repeticiones = contador;
+                numeroFrecuente = numeros[i];
+            }
+
         }
-
-        return numero1 / numero2;
+        System.out.println("El numero que mas se repite es : " + numeroFrecuente);
+        System.out.println("Y se repite " + repeticiones + " veces");
     }
-    public static void main(String[] args) {
 
-        System.out.println(sumar(1,5));
+    public static void main (String[]args){
+
+            int[] listanumeros = {1, 5, 3, 5, 4, 16, 5, 8, 4};
+            numeroMasFrecuente(listanumeros);
+
+        /*System.out.println(sumar(1,5));
         System.out.println(restar(5,3));
         System.out.println(multiplicar(2,5));
         System.out.println(dividir(10,0));
-
-
+         */
     }
+
 }
